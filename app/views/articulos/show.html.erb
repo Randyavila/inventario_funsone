@@ -1,0 +1,52 @@
+<% content_for :subtitulo do %>
+  Detalles del Articulo
+<% end %>
+
+
+    <p>
+    <strong>Group:</strong>
+
+      <%  @q=Grupo.find(@articulo.grupos_id) %>
+      <%= @q.codgrupo %>-<%= @q.codsubgrupo %>-<%= @q.codseccion %>
+
+    </p>
+
+    <p>
+    <strong>Codigo del bien:</strong>
+      <%= @articulo.codigousuario %>
+    </p>
+
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @articulo.descripcion %>
+    </p>
+
+    <p>
+    <strong>Cantidad:</strong>
+      <%= @articulo.existencia %>
+    </p>
+
+    <p>
+      <strong>Coordinación:</strong>
+
+      <%  @q=Departamento.find(@articulo.departamento_id) %>
+      <%= @q.nombre %>
+
+    </p>
+
+    <p>
+    <strong>Valor:</strong>
+      <%= @articulo.valor %>
+    </p>
+
+    <p>
+      <strong>Estado:</strong>
+
+      <%  @q=Estado.find(@articulo.estados_id) %>
+      <%= @q.estado %>
+
+    </p>
+
+    <%= link_to articulos_path, class:"btn btn-primary" do%>
+    <i class="lyphicon glyphicon-repeat"></i> Regresar
+    <% end %>

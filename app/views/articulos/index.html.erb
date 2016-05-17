@@ -1,0 +1,82 @@
+<% content_for :subtitulo do %>
+  Articulos
+<% end %>
+
+<%# if can? :create, @articulo %>
+<%= link_to new_articulo_path, class: "btn btn-success"  do%>
+  <i class="glyphicon glyphicon-plus"></i> Crear Artículo
+<% end %>
+
+<%= link_to articulos_path(:format => 'pdf'), class: "btn btn-warning", :target => "_blank"  do%>
+  <i class="glyphicon glyphicon-print"></i> Imprimir Inventario
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <th>Grupo</th>
+    <th>Código del Bien</th>
+    <th>Descripción</th>
+    <th>Disponible</th>
+    <th>Coordinación</th>
+    <th>Estado</th>
+    <th>Valor Monetario</th>
+    <th>Opciones</th>
+  </thead>
+  <tbody>
+    <% @articulos.each do |articulo| %>
+      <tr>
+        <td>
+
+          <% if  !articulo.grupos_id.blank?%>
+          <%  @q=Grupo.find(articulo.grupos_id) %>
+          <%= @q.codgrupo %>-<%= @q.codsubgrupo %>-<%= @q.codseccion %>
+          <% end %>
+        </td>
+        <td> <%= articulo.codigousuario %> </td>
+        <td> <%= articulo.descripcion %> </td>
+        <td> <%= number_with_delimiter(articulo.existencia) %> </td>
+
+        <td> <% if  !articulo.departamento_id.blank?%>
+          <%  @q=Departamento.find(articulo.departamento_id) %>
+          <%= @q.nombre %>
+          <% end %> </td>
+
+           <%#= articulo.ubicacion %>
+
+        <td> <% if  !articulo.estados_id.blank?%>
+          <%  @q=Estado.find(articulo.estados_id) %>
+          <%= @q.estado %>
+          <% end %> </td>
+        <td> <%= articulo.valor%> </td>
+        <td>
+        <%= link_to articulo_path(articulo), class: "btn btn-info" do %>
+          <i class="glyphicon glyphicon-eye-open"></i> Detalles
+        <% end %>
+      </td>
+
+        <td>
+          <%= link_to edit_articulo_path(articulo), class: "btn btn-primary" do%>
+            <i class="glyphicon glyphicon-edit"></i> Editar
+          <% end %>
+        </td>
+        <td>
+
+        <%= link_to  articulo, class:"btn btn-danger", method: :delete, data: { confirm: '¿Seguro que desea eliminar?' } do%>
+          <i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Eliminar
+        <% end %>
+
+        </td>
+
+      </tr>
+    <% end %>
+
+  </tbody>
+
+  <%= form_tag(articulos_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Buscar por Descripcion" %>
+  <%= submit_tag "Buscar" %>
+  <% end %>
+
+</table>
+
+<%= paginate @articulos %>

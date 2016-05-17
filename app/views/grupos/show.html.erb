@@ -1,0 +1,62 @@
+<% content_for :subtitulo do %>
+  Articulos que pertenecen a este grupo:
+<% end %>
+
+
+<table class="table table-striped">
+  <thead>
+    <th>Grupo</th>
+    <th>Código del Bien</th>
+    <th>Descripción</th>
+    <th>Disponible</th>
+    <th>Coordinación</th>
+    <th>Estado</th>
+    <th>Valor Monetario</th>
+    <th>Opciones</th>
+  </thead>
+  <tbody>
+    <% @articulos.each do |articulo| %>
+      <tr>
+        <td>
+
+          <% if  !articulo.grupos_id.blank?%>
+          <%  @q=Grupo.find(articulo.grupos_id) %>
+          <%= @q.codgrupo %>-<%= @q.codsubgrupo %>-<%= @q.codseccion %>
+          <% end %>
+        </td>
+        <td> <%= articulo.codigousuario %> </td>
+        <td> <%= articulo.descripcion %> </td>
+        <td> <%= number_with_delimiter(articulo.existencia) %> </td>
+
+        <td> <% if  !articulo.departamento_id.blank?%>
+          <%  @q=Departamento.find(articulo.departamento_id) %>
+          <%= @q.nombre %>
+          <% end %> </td>
+
+        <td> <% if  !articulo.estados_id.blank?%>
+          <%  @q=Estado.find(articulo.estados_id) %>
+          <%= @q.estado %>
+          <% end %> </td>
+        <td> <%= articulo.valor%> </td>
+        <td>
+        <%= link_to articulo_path(articulo), class: "btn btn-info" do %>
+          <i class="glyphicon glyphicon-eye-open"></i> Detalles
+        <% end %>
+      </td>
+
+        <td>
+          <%= link_to edit_articulo_path(articulo), class: "btn btn-primary" do%>
+            <i class="glyphicon glyphicon-edit"></i> Editar
+          <% end %>
+        </td>
+
+      </tr>
+    <% end %>
+
+  </tbody>
+
+</table>
+
+<%= link_to grupos_path, class:"btn btn-primary" do%>
+<i class="lyphicon glyphicon-repeat"></i> Regresar
+<% end %>

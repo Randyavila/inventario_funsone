@@ -1,0 +1,40 @@
+<% content_for :subtitulo do %>
+  Orden Número: <%= @solicitud.nunsolicitud %>
+<% end %>
+
+Elaborado por: <%= @solicitud.user.nombre %> <%= @solicitud.user.apellidos %><br>
+
+Solicitado por:<br>
+<%= @solicitud.departamento.titular %><br>
+<%= @solicitud.departamento.nombre %><br>
+<hr>
+
+Fecha del Pedido: <%= @solicitud.created_at %>
+<hr>
+
+<table class="table table-bordered">
+  <thead>
+    <th>Codigo</th>
+    <th>Descripcion</th>
+    <th>Solicitado</th>
+  </thead>
+  <tbody>
+    <% @solicitud.enviarsolicituds.each do |detalles_solicitud| %>
+      <tr>
+        <td> <%= detalles_solicitud.articulo_id %>  </td>
+        <td> <%= detalles_solicitud.articulo.descripcion %></td>
+        <td> <%= detalles_solicitud.solicitado %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <%= link_to solicitud_path(@solicitud, :format => 'pdf'), class: "btn btn-warning", :target => "_blank" do%>
+    <i class="glyphicon glyphicon-print"></i> Imprimir Pedido
+    <% end %>
+
+
+    <%= link_to solicituds_path, class:"btn btn-primary" do%>
+    <i class="glyphicon glyphicon-repeat"></i> Regresar
+  <% end %>
+</div>

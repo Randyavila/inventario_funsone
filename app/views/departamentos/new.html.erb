@@ -1,0 +1,33 @@
+<% content_for :subtitulo do %>
+  Crear Coordinación
+<% end %>
+
+<div class="col-md-6 well">
+  <%= form_for :departamento, url: departamentos_path(@departamento) do |f| %>
+  <%= f.label "Nombre de la Coordinación", class: "control-label" %>
+  <%= f.text_field :nombre, class: "form-control", placeholder: 'Departamento' %>
+
+  <%= f.label "Nombre del Titular (Nombre y Apellido)", class: "control-label" %>
+  <%= f.text_field :titular, class: "form-control", placeholder: 'Titular' %>
+
+  <br>
+  <%= f.submit "Crear Coordinación", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+
+  <div class="col-md-6 well-sm">
+  <% if @departamento.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><center>!Error al crear el Departamento!</center></h2>
+      <ul>
+      <% @departamento.errors.each_with_index do |msg| %>
+        <li><%= msg[1] %></li>
+      <% end %>
+      </ul>
+    </center></div>
+    <br>
+
+  <% end %>
+
+</div>

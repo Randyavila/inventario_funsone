@@ -1,0 +1,67 @@
+<% content_for :subtitulo do %>
+  Crear Articulo
+<% end %>
+
+<h5><center>* Se Recomienda refrescar la pagina para agregar artículos.</center></h5>
+
+<div class="col-md-6 col-sm-6">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <%= form_for(@articulo) do |f| %>
+              Nuevo Articulo
+          </div>
+          <div class="panel-body">
+            <%= f.label :Grupo, class: "control-label" %>
+            <%= f.collection_select(:grupos_id, Grupo.all, :id, :descripcion, prompt: "Seleccione:") %>
+
+            <br>
+
+            <%= f.label :Codigo_del_bien, class: "control-label" %>
+            <%= f.text_field :codigousuario, class: "form-control" %>
+
+            <%= f.label :Descripción, class: "control-label" %>
+            <%= f.text_field :descripcion, class: "form-control" %>
+
+            <%= f.label :Cantidad, class: "control-label" %>
+            <%= f.text_field :existencia, class: "form-control" %>
+
+
+            <%= f.label :Ubicacion_Del_artículo, class: "control-label"%>
+            <%= f.collection_select(:departamento_id, Departamento.all, :id, :nombre, prompt: "Seleccione:") %>
+            <br>
+            <%= f.label :Estado_del_artículo, class: "control-label"%>
+            <%= f.collection_select(:estados_id, Estado.all, :id, :estado, prompt: "Seleccione:") %>
+
+            <br>
+
+            <%= f.label :Valor_Monetario, class: "control-label" %>
+            <%= f.text_field :valor, class: "form-control" %>
+
+          </div>
+
+          <%= button_tag(:class => "btn btn-success") do %>
+            <i class="glyphicon glyphicon-floppy-disk"></i>Guardar
+          <% end %>
+          <%= link_to articulos_path, class:"btn btn-primary" do%>
+          <i class="lyphicon glyphicon-repeat"></i> Regresar
+          <% end %>
+      </div>
+  </div>
+
+
+  <% end %>
+
+
+  <div class="col-md-6 well">
+  <% if @articulo.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><center>!Error al crear el Articulo!</center></h2>
+
+      <ul>
+      <% @articulo.errors.each_with_index do |msg| %>
+        <li><%= msg[1] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  </div>

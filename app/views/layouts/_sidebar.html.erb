@@ -1,0 +1,50 @@
+<nav class="navbar-default navbar-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav" id="main-menu">
+      <li class="text-center">
+        <%= image_tag ('inventarios.png'), :class => 'image img-responsive' %>
+      </li>
+      <li>
+        <%= link_to root_path, method: :get do%>
+          <i class="glyphicon glyphicon-home glyphicon3x"></i> Inicio
+        <% end %>
+      </li>
+      <li>
+        <%= link_to articulos_path do%>
+          <i class="glyphicon glyphicon-paperclip glyphicon3x"></i> Artículos
+        <% end %>
+      </li>
+      <li>
+        <%= link_to grupos_path do%>
+          <i class="glyphicon glyphicon-th-list glyphicon3x"></i> Grupo
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to departamentos_path do%>
+          <i class="glyphicon glyphicon-th glyphicon3x"></i> Coordinaciones
+        <% end %>
+     </li>
+
+      <li>
+        <%= link_to pedidos_path do%>
+          <i class="glyphicon glyphicon-book glyphicon3x"></i> Pedidos
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to solicituds_path do%>
+          <i class="glyphicon glyphicon-pencil glyphicon3x"></i> Solicitar
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to estados_path do%>
+          <i class="glyphicon glyphicon-ok glyphicon3x"></i> Status
+        <% end %>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+<% content_for :subtitulo do %>
+Grupos<% end %>
+<h1>Lista de Grupos</h1>
+
+<%= link_to new_grupo_path, class: "btn btn-success"  do%>
+  <i class="glyphicon glyphicon-plus"></i> Crear Grupo
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Grupo  </th>
+      <th>Subgrupo  </th>
+      <th>Seccion  </th>
+      <th>Descripcion  </th>
+      <th>Opciones  </th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos.each do |grupo| %>
+      <tr>
+        <td><%= grupo.codgrupo %></td>
+        <td><%= grupo.codsubgrupo %></td>
+        <td><%= grupo.codseccion %></td>
+        <td><%= grupo.descripcion %></td>
+        <td>
+        <%= link_to grupo_path(grupo), class: "btn btn-info" do %>
+          <i class="glyphicon glyphicon-eye-open"></i> mostrar
+        <% end %>
+
+            <%= link_to edit_grupo_path(grupo), class: "btn btn-primary" do%>
+            <i class="glyphicon glyphicon-edit"></i> Editar
+            <% end %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+
+  <%= form_tag(grupos_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Buscar por descripcion" %>
+  <%= submit_tag "Buscar" %>
+  <% end %>
+
+</table>
+
+
+
+<%= paginate @grupos %>

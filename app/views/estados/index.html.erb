@@ -1,0 +1,51 @@
+<% content_for :subtitulo do %>
+  Lista de Status
+<% end %>
+
+<%= link_to new_estado_path, class: "btn btn-success"  do%>
+  <i class="glyphicon glyphicon-plus"></i> Crear Status
+<% end %>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <!-- Advanced Tables -->
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                 Status
+            </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+
+                      <tbody>
+                        <% @estados.each do |estado| %>
+                          <tr>
+                            <td><%= estado.estado %></td>
+                            <td>
+                            <%= link_to estado_path(estado), class: "btn btn-info" do %>
+                              <i class="glyphicon glyphicon-eye-open"></i> Ver
+                            <% end %>
+
+                              <%= link_to edit_estado_path(estado), class: "btn btn-primary", data: { confirm: '¿Seguro que desea editar?' } do%>
+                                <i class="glyphicon glyphicon-edit"></i> Editar
+                              <% end %>
+
+
+                              <%= link_to  estado, class:"btn btn-danger", method: :delete, data: { confirm: '¿Seguro que desea eliminar?' } do%>
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Eliminar
+                              <% end %>
+
+                              </td>
+                          <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+
+
+
+<%= paginate @estados %>

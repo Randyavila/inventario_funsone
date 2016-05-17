@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codgrupo: 1
+  codsubgrupo: 1
+  codseccion: 1
+  descripcion: MyString
+
+two:
+  codgrupo: 1
+  codsubgrupo: 1
+  codseccion: 1
+  descripcion: MyString

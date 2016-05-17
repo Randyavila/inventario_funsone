@@ -1,0 +1,16 @@
+<% content_for :subtitulo do %>
+  Crear Departamento
+<% end %>
+
+<p>
+<strong>Coordinación:</strong>
+  <%= @departamento.nombre %>
+</p>
+
+<p>
+<strong>Titular:</strong>
+  <%= @departamento.titular %>
+</p>
+
+
+<%= link_to 'Back', departamentos_path %>

@@ -1,0 +1,59 @@
+<% content_for :subtitulo do %>
+Crear Pedido
+<% end %>
+
+<div class="col-md-12">
+  <%= form_for (@solicitud) do |f| %>
+  <% if @solicitud.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><center>!Error al crear el Pedido!</center></h2>
+      <ul>
+      <% @solicitud.errors.each_with_index do |msg| %>
+        <li><strong><%= msg[1] %></strong></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="well">
+        <h4>Pedido para:
+          <%= f.collection_select(:departamento_id, Departamento.all, :id, :titular, prompt: "Seleccione Titular del área") %>
+        </h4><br>
+        <table>
+          <thead class="header-table">
+              <th>
+                <center>Artículo</center>
+              </th>
+              <th>
+                <center>Solicitado</center>
+              </th>
+          </thead>
+
+          <tbody>
+            <%= f.fields_for :enviarsolicituds do |enviar| %>
+            <tr>
+              <td>
+                <%= enviar.collection_select(:articulo_id, Articulo.all, :id, :descripcion, prompt: "Seleccione:") %>
+
+              </td>
+              <td>
+                <%= enviar.text_field :solicitado %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table><br>
+        <%= button_tag( :class => "btn btn-success") do %>
+          <i class="glyphicon glyphicon-floppy-disk"></i> Guardar
+        <% end %>
+        <%= link_to solicituds_path, class:"btn btn-primary" do%>
+        <i class="glyphicon glyphicon-repeat"></i> Regresar
+        <% end %>
+      </div>
+    </div>
+    <%= f.hidden_field :nunsolicitud, :value => @nunsolicitud %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+  </div>
+</div>
