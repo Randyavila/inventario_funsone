@@ -7,8 +7,8 @@ class ArticulosPdf < Prawn::Document
   end
 
   def header
-    image "#{Rails.root}/app/assets/images/logo_funsone.png", width: 140, height: 75, :at => [0, 740]
-    image "#{Rails.root}/app/assets/images/GNE.png", width: 140, height: 75, :at => [400,740]
+    image "#{Rails.root}/app/assets/images/logo_funsone.png", width: 140, height: 80, :at => [0, 740]
+    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 90, :at => [400,740]
 
     draw_text "Dirección de Recursos Materiales", :at => [185,660]
   end
@@ -22,8 +22,8 @@ class ArticulosPdf < Prawn::Document
     table articulos_rows do
       row(0).font_style = :bold
       row(0).background_color = 'dbdee2'
-      self.cell_style = {size: 10, border_color: 'd6d8db'}
-      self.column_widths = [36, 52, 42 ,59, 85, 49, 90, 65, 59]
+      self.cell_style = {size: 9, border_color: 'd6d8db'}
+      self.column_widths = [38, 54, 44 ,59, 85, 49, 90, 65, 55]
     end
   end
 

@@ -11,6 +11,8 @@ class SolicitudPdf < Prawn::Document
   def header
     image "#{Rails.root}/app/assets/images/logo_funsone.png", width: 140, height: 75, :at => [0, 740]
     draw_text "Dirección de Recursos Materiales", :at => [185,660]
+    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 90, :at => [400,740]
+
   end
 
   def body
@@ -19,13 +21,13 @@ class SolicitudPdf < Prawn::Document
   end
 
   def footer
-    draw_text @solicitud.user.nombre + " " + @solicitud.user.apellidos, :at => [25, 28]
+    draw_text @solicitud.user.nombre + " " + @solicitud.user.apellidos, :at => [10, 28]
     draw_text "_________________________________", :at => [10, 25]
-    draw_text "Elaboró y Autorizó", :at => [32, 12]
+    draw_text "Firma del Solicitante", :at => [55, 12]
 
-    draw_text @solicitud.departamento.titular, :at => [350, 28]
+    #draw_text @solicitud.departamento.titular, :at => [310, 28]
     draw_text "_________________________________", :at => [310, 25]
-    draw_text "Firma del Responsable", :at => [370, 12]
+    draw_text "Firma del Responsable De Almacén", :at => [325, 12]
   end
 
   def table_content

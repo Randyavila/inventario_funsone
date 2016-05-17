@@ -2,50 +2,70 @@
   Detalles del Articulo
 <% end %>
 
+<div class="row">
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                 Artículo
+            </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 
-    <p>
-    <strong>Group:</strong>
+                      <tbody>
+                        <tr>
+      <td>
+    <strong>Grupo:</strong>
 
       <%  @q=Grupo.find(@articulo.grupos_id) %>
       <%= @q.codgrupo %>-<%= @q.codsubgrupo %>-<%= @q.codseccion %>
 
-    </p>
+    </td>
 
-    <p>
+    <td>
     <strong>Codigo del bien:</strong>
       <%= @articulo.codigousuario %>
-    </p>
+    </td>
 
-    <p>
+    <td>
       <strong>Descripcion:</strong>
       <%= @articulo.descripcion %>
-    </p>
+    </td>
 
-    <p>
+    <td>
     <strong>Cantidad:</strong>
       <%= @articulo.existencia %>
-    </p>
+    </td>
 
-    <p>
+    <td>
       <strong>Coordinación:</strong>
 
       <%  @q=Departamento.find(@articulo.departamento_id) %>
       <%= @q.nombre %>
 
-    </p>
+    </td>
 
-    <p>
+    <td>
     <strong>Valor:</strong>
       <%= @articulo.valor %>
-    </p>
+    </td>
 
-    <p>
+    <td>
       <strong>Estado:</strong>
 
       <%  @q=Estado.find(@articulo.estados_id) %>
       <%= @q.estado %>
 
-    </p>
+    </td>
+
+            </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
 
     <%= link_to articulos_path, class:"btn btn-primary" do%>
     <i class="lyphicon glyphicon-repeat"></i> Regresar

@@ -1,5 +1,5 @@
 class EstadosController < ApplicationController
-  before_action :set_estado, only: [:show, :edit, :update, :destroy]
+  before_action :set_estado, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   load_and_authorize_resource
@@ -12,6 +12,8 @@ class EstadosController < ApplicationController
 
   # GET /estados/1
   def show
+    @articulos = Articulo.where(:estados_id => params[:id])
+
   end
 
   # GET /estados/new
