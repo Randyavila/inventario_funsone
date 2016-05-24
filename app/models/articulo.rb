@@ -36,7 +36,6 @@ class Articulo < ActiveRecord::Base
   end
 
 
-
   private
     def self.disponibilidad(status)
       if status == "disponible"

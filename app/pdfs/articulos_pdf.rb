@@ -8,13 +8,13 @@ class ArticulosPdf < Prawn::Document
 
   def header
     image "#{Rails.root}/app/assets/images/logo_funsone.png", width: 140, height: 80, :at => [0, 740]
-    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 90, :at => [400,740]
+    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 102, :at => [400,740]
 
     draw_text "Dirección de Recursos Materiales", :at => [185,660]
   end
 
   def body
-    move_down 90
+    move_down 80
     table_content
   end
 
@@ -27,15 +27,14 @@ class ArticulosPdf < Prawn::Document
     end
   end
 
-
   def articulos_rows
     [ [{:content => "Total de Artículos en Inventario", :colspan =>9}],
       ['Grupo', 'SubGrupo', 'Sección','Código del Bien', 'Descripción', 'Cantidad', 'Ubicación', 'Estado', 'Valor Monetario'] ] +
       @articulos.map do |articulo|
+
         @q=Grupo.find(articulo.grupos_id)
         @a=Estado.find(articulo.estados_id)
         @b=Departamento.find(articulo.departamento_id)
-
       [@q.codgrupo,@q.codsubgrupo,@q.codseccion,articulo.codigousuario, articulo.descripcion, articulo.existencia.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse, @b.nombre, @a.estado, articulo.valor]
     end
   end

@@ -11,7 +11,7 @@ class SolicitudPdf < Prawn::Document
   def header
     image "#{Rails.root}/app/assets/images/logo_funsone.png", width: 140, height: 75, :at => [0, 740]
     draw_text "Dirección de Recursos Materiales", :at => [185,660]
-    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 90, :at => [400,740]
+    image "#{Rails.root}/app/assets/images/index.jpeg", width: 140, height: 70, :at => [400,740]
 
   end
 
