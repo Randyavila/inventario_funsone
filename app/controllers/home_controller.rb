@@ -9,5 +9,6 @@ class HomeController < ApplicationController
     @ultimas_solicituds = Solicitud.recientes
     @total_solicituds = Solicitud.count
     @total_departamentos = Departamento.count
+    @total_grupos= Grupo.count
   end
 end

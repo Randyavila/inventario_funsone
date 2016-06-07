@@ -1,7 +1,7 @@
 <% content_for :subtitulo do %>
   Crear Articulo
 <% end %>
-<h5><center>* Se Recomienda refrescar la pagina para agregar artículos.</center></h5>
+<h5><center>* Se Recomienda refrescar la pagina para agregar artículos. *</center></h5>
 
 
 <div class="col-md-6 col-sm-6">
@@ -42,8 +42,8 @@
           <%= button_tag(:class => "btn btn-success") do %>
             <i class="glyphicon glyphicon-floppy-disk"></i>Guardar
           <% end %>
-          <%= link_to articulos_path, class:"btn btn-primary" do%>
-          <i class="lyphicon glyphicon-repeat"></i> Regresar
+          <%= link_to articulos_path, class:"btn btn-warning" do%>
+          <i class="glyphicon glyphicon-repeat"></i> Regresar
           <% end %>
       </div>
   </div>

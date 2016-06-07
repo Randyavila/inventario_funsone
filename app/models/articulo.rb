@@ -5,7 +5,6 @@ class Articulo < ActiveRecord::Base
   belongs_to :grupos
 
 
-  validates :codigousuario, :presence => true
   validates :descripcion, :presence => true
   validates :existencia, :presence => true
   validates :valor, :presence => true
@@ -16,8 +15,6 @@ class Articulo < ActiveRecord::Base
   validates :valor, presence: { message: "Debe ingresar un valor monetario" }
 
 
-  validates :valor, numericality: { only_integer: true }
-  validates :codigousuario, numericality: { only_integer: true }
   validates :existencia, numericality: { only_integer: true }
 
 

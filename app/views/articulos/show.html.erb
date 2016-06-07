@@ -1,5 +1,5 @@
 <% content_for :subtitulo do %>
-  Detalles del Articulo
+  Detalles del Artículo
 <% end %>
 
 <div class="row">
@@ -28,7 +28,7 @@
     </td>
 
     <td>
-      <strong>Descripcion:</strong>
+      <strong>Descripción:</strong>
       <%= @articulo.descripcion %>
     </td>
 
@@ -51,7 +51,7 @@
     </td>
 
     <td>
-      <strong>Estado:</strong>
+      <strong>Status:</strong>
 
       <%  @q=Estado.find(@articulo.estados_id) %>
       <%= @q.estado %>
@@ -67,6 +67,6 @@
   </div>
 
 
-    <%= link_to articulos_path, class:"btn btn-primary" do%>
-    <i class="lyphicon glyphicon-repeat"></i> Regresar
-    <% end %>
+  <%= link_to articulos_path, class:"btn btn-warning" do%>
+  <i class="glyphicon glyphicon-repeat"></i> Regresar
+  <% end %>

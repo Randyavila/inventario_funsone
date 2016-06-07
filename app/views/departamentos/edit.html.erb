@@ -23,8 +23,13 @@
     <%= f.label :titular, class: "control-label" %>
     <%= f.text_field :titular, class: "form-control" %>
  <br>
+<ul>
 
     <%= f.submit "Actualizar Coordinación", class: "btn btn-primary" %>
-    <%= link_to 'Regresar', departamento_path %>
+    <% end %>
+    <%= link_to departamento_path, class:"btn btn-warning" do%>
+    <i class="glyphicon glyphicon-repeat"></i> Regresar
   <% end %>
+</ul>
+
 </div>

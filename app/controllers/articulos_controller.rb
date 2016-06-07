@@ -7,7 +7,7 @@ class ArticulosController < ApplicationController
 
   def index
     if params[:search]
-      @articulos = Articulo.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
+      @articulos = Articulo.search(params[:search]).order("created_at DESC").page(params[:page]).per(7)
      else
       @articulos = Articulo.order('created_at DESC').page(params[:page]).per(100)
         end
@@ -23,6 +23,7 @@ class ArticulosController < ApplicationController
   end
 
   def show
+
     #@articulos = Articulo.where(:grupos_id => params[:articulos_id])
 
   end

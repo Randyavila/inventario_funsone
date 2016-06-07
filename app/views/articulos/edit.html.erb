@@ -40,13 +40,13 @@
 
             <%= f.label :Coordinación, class: "control-label"%>
             <%= f.collection_select(:departamento_id, Departamento.all, :id, :nombre, prompt: "Seleccione:") %>
-
+          
+            <br>
             <%= f.label :Estado_del_articulo, class: "control-label"%>
             <%= f.collection_select(:estados_id, Estado.all, :id, :estado, prompt: "Seleccione:") %>
             <% end %>
             <br>
             <br>
-
 
             <%= f.label :Valor_Monetario, class: "control-label" %>
             <%= f.text_field :valor, class: "form-control" %>
@@ -56,8 +56,8 @@
           <%= button_tag(:class => "btn btn-success") do %>
             <i class="glyphicon glyphicon-floppy-disk"></i>Guardar
           <% end %>
-          <%= link_to articulos_path, class:"btn btn-primary" do%>
-          <i class="lyphicon glyphicon-repeat"></i> Regresar
+          <%= link_to articulos_path, class:"btn btn-warning" do%>
+          <i class="glyphicon glyphicon-repeat"></i> Regresar
           <% end %>
       </div>
 

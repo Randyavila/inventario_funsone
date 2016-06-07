@@ -9,7 +9,8 @@ class DepartamentosController < ApplicationController
   end
 
   def show
-    @departamento = Departamento.find(params[:id])
+
+    @articulos = Articulo.where(:departamento_id => params[:id])
   end
 
   def new

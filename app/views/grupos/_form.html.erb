@@ -28,6 +28,11 @@
     <%= f.text_field :descripcion %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <br>
+    <%= f.submit "Crear Grupo", class: "btn btn-primary" %>
+
+    <%= link_to grupos_path, class:"btn btn-warning" do%>
+    <i class="glyphicon glyphicon-repeat"></i> Regresar
+    <% end %>
   </div>
 <% end %>

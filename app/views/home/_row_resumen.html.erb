@@ -57,7 +57,7 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-xs-3">
-          <i class="glyphicon glyphicon-send glyphicon5x"></i>
+          <i class="glyphicon glyphicon-book glyphicon5x"></i>
         </div>
         <div class="col-xs-9 text-right">
           <div class="huge"> <%= @total_pedidos %> </div>
@@ -86,7 +86,7 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-xs-3">
-          <i class="glyphicon glyphicon-list glyphicon5x"></i>
+          <i class="glyphicon glyphicon-pencil glyphicon5x"></i>
         </div>
         <div class="col-xs-9 text-right">
           <div class="huge"> <%= @total_solicituds %> </div>
@@ -143,11 +143,11 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-xs-3">
-          <i class="glyphicon glyphicon-ok glyphicon5x"></i>
+          <i class="glyphicon glyphicon-list glyphicon5x"></i>
         </div>
         <div class="col-xs-9 text-right">
-          <div class="huge"> <%= @total_estados %> </div>
-          <div>Status</div>
+          <div class="huge"> <%= @total_grupos %> </div>
+          <div>Grupos</div>
         </div>
       </div>
     </div>
@@ -155,9 +155,9 @@
     <a href="#">
       <div class="panel-footer">
         <span class="pull-left"></span>
-        <%= link_to estados_path do%>
+        <%= link_to grupos_path do%>
         <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-        <i class="glyphicon glyphicon-list"></i> Ver Status
+        <i class="glyphicon glyphicon-list"></i> Ver Grupos
       <% end %>
         <div class="clearfix"></div>
       </div>

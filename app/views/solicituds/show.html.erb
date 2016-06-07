@@ -4,7 +4,7 @@
 
 Elaborado por: <%= @solicitud.user.nombre %> <%= @solicitud.user.apellidos %><br>
 
-Solicitado por:<br>
+Solicitado para:<br>
 <%= @solicitud.departamento.titular %><br>
 <%= @solicitud.departamento.nombre %><br>
 <hr>
@@ -34,7 +34,7 @@ Fecha del Pedido: <%= @solicitud.created_at %>
     <% end %>
 
 
-    <%= link_to solicituds_path, class:"btn btn-primary" do%>
+    <%= link_to solicituds_path, class:"btn btn-warning" do%>
     <i class="glyphicon glyphicon-repeat"></i> Regresar
   <% end %>
 </div>

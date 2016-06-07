@@ -11,6 +11,7 @@
   <i class="glyphicon glyphicon-print"></i> Imprimir Inventario
 <% end %>
 
+
 <table class="table table-striped">
   <thead>
     <th>Grupo</th>
@@ -19,7 +20,7 @@
     <th>Disponible</th>
     <th>Coordinación</th>
     <th>Estado</th>
-    <th>Valor Monetario</th>
+    <th>Valor Monetario (Bs.)</th>
     <th>Opciones</th>
   </thead>
   <tbody style="font-size:90%;">
@@ -76,6 +77,9 @@
   <%= text_field_tag :search, params[:search], placeholder: "Buscar por Descripcion" %>
   <%= submit_tag "Buscar" %>
   <% end %>
+
+  <h5><center>* Se Recomienda refrescar la pagina para hacer busquedas segun su descripción. *</center></h5>
+
 
 </table>
 
